@@ -1,0 +1,119 @@
+<section id="counts" class="counts">
+    <div class="container">
+        <div class="row">
+            <div
+                class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start"
+                data-aos="fade-right"
+                data-aos-delay="150"
+            >
+                <img
+                    src="https://akeshya.com/assets/img/counts-img.svg"
+                    alt=""
+                    class="img-fluid"
+                />
+            </div>
+
+            <div
+                class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0"
+                data-aos="fade-left"
+                data-aos-delay="300"
+            >
+                <div class="content d-flex flex-column justify-content-center">
+                    <div class="row">
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-emoji-smile"></i>
+                                <span id="purecounter1"></span>
+                                <p><strong>Organic Reach</strong> (Global)</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-journal-richtext"></i>
+                                <span id="purecounter2"></span>
+                                <p><strong>Campaigns</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-clock"></i>
+                                <span id="purecounter3"></span>
+                                <p><strong>Watch Hours</strong> (Asia)</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-globe"></i>
+                                <span id="purecounter4"></span>
+                                <p><strong>Excellent CTR %</strong> (Asia)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = [
+            {
+                element: document.getElementById("purecounter1"),
+                start: 0,
+                end: 3835039,
+                duration: 3000,
+            },
+            {
+                element: document.getElementById("purecounter2"),
+                start: 0,
+                end: 85,
+                duration: 3000,
+            },
+            {
+                element: document.getElementById("purecounter3"),
+                start: 0,
+                end: 14081,
+                duration: 3000,
+            },
+            {
+                element: document.getElementById("purecounter4"),
+                start: 0,
+                end: 17,
+                duration: 3000,
+            },
+        ];
+
+        function animateCounter(element, start, end, duration) {
+            let startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min(
+                    (timestamp - startTime) / duration,
+                    1,
+                );
+                element.textContent = Math.floor(
+                    progress * (end - start) + start,
+                );
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+
+            window.requestAnimationFrame(step);
+        }
+
+        counters.forEach((counter) => {
+            animateCounter(
+                counter.element,
+                counter.start,
+                counter.end,
+                counter.duration,
+            );
+        });
+    });
+</script>

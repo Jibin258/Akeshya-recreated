@@ -1,0 +1,59 @@
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo">
+            <h1>
+                <img
+                    src="https://akeshya.com/assets/img/logo.png"
+                    alt=""
+                    class="img-fluid"
+                />AKESHYA
+            </h1>
+        </div>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li>
+                    <a class="nav-link scrollto" href="#hero">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="#about">About</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="#services">Services</a>
+                </li>
+                <li>
+                    <a
+                        class="getstarted scrollto text-decoration-none"
+                        href="#contact">Contact us</a
+                    >
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" id="handleNavToggle"></i>
+        </nav>
+    </div>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("handleNavToggle").addEventListener("click", () => {
+            const navbar = document.querySelector("#navbar");
+            navbar.classList.toggle("navbar-mobile");
+            document
+                .querySelector(".mobile-nav-toggle")
+                .classList.toggle("bi-list");
+            document
+                .querySelector(".mobile-nav-toggle")
+                .classList.toggle("bi-x");
+        });
+
+        const onScroll = () => {
+            const navbar = document.querySelector("#header");
+            if (window.scrollY > 100) {
+                navbar.classList.add("header-scrolled");
+            } else {
+                navbar.classList.remove("header-scrolled");
+            }
+        };
+
+        window.addEventListener("scroll", onScroll);
+    });
+</script>
