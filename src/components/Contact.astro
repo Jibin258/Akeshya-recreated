@@ -50,7 +50,12 @@
                 data-aos="fade-up"
                 data-aos-delay="300"
             >
-                <form class="email-form" method="POST" name="contact">
+                <form
+                    class="email-form"
+                    method="POST"
+                    name="contact"
+                    id="contactForm"
+                >
                     <input type="hidden" name="form-name" value="contact" />
                     <div class="form-group">
                         <input
@@ -58,6 +63,7 @@
                             name="name"
                             class="form-control"
                             id="name"
+                            value=""
                             placeholder="Your Name"
                             required
                         />
@@ -68,6 +74,7 @@
                             class="form-control"
                             name="email"
                             id="email"
+                            value=""
                             placeholder="Your Email"
                             required
                         />
@@ -78,6 +85,7 @@
                             class="form-control"
                             name="subject"
                             id="subject"
+                            value=""
                             placeholder="Subject"
                             required
                         />
@@ -86,6 +94,8 @@
                         <textarea
                             class="form-control"
                             name="message"
+                            id="textArea"
+                            value=""
                             rows="5"
                             placeholder="Message"
                             required></textarea>
@@ -98,3 +108,22 @@
         </div>
     </div>
 </section>
+
+<script>
+    document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("Your message has been sent. Thank you!");
+            console.log({
+                name : document.getElementById("name").value,
+                email : document.getElementById("name").value,
+                subject : document.getElementById("subject").value,
+                message : document.getElementById("textArea").value
+            })
+            document.getElementById("name").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("subject").value = "";
+            document.getElementById("textArea").value = "";
+        });
+</script>
